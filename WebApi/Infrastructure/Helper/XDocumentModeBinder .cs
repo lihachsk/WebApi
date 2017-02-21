@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Xml.Linq;
+
+namespace WebApi.Infrastructure.Helper
+{
+    public class XDocumentModeBinder : IModelBinder
+    {
+        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        {
+            return XDocument.Load(controllerContext.HttpContext.Request.InputStream);
+        }
+    }
+}
